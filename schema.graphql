@@ -1,0 +1,38 @@
+type NewWallet @entity {
+  id: ID!
+  count: BigInt!
+  wallet: Bytes # address
+}
+
+type Bet @entity {
+  id: ID!
+  epoch: BigInt! # address
+  amount: BigInt! # uint256
+  timestamp: BigInt!
+  user: Bytes!
+  token: Bytes!
+  direction: Boolean!
+  fee: BigInt!
+  transactionHash: String!
+}
+
+type Claim @entity {
+  id: ID!
+  user: Bytes!
+  epochs: [BigInt!]! # address
+  reward: BigInt! # uint256
+  timestamp: BigInt!
+  fee: BigInt!
+  token: Bytes!
+  transactionHash: String!
+}
+
+type Transaction @entity {
+  id: ID!
+  wallet: String!
+  transactionHash: String!
+  timestamp: BigInt!
+  transferEvent: String!
+  bet: Bet
+  claim: Claim
+}

@@ -1,0 +1,49 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Factory
+    # prettier-ignore
+    network: {{network}}
+    source:
+      address: "{{address}}"
+      abi: Factory
+      # prettier-ignore
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Created
+      abis:
+        - name: Factory
+          file: ./abis/Factory.json
+      eventHandlers:
+        - event: Created(indexed address)
+          handler: handleCreated
+      file: ./src/mapping.ts
+templates:
+  - name: Wallet
+    kind: ethereum/contract
+    # prettier-ignore
+    network: {{network}}
+    source:
+      abi: Wallet
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/core.ts
+      entities:
+        - Bet
+        - ClaimPredictionReward
+      abis:
+        - name: Wallet
+          file: ./abis/Wallet.json
+      eventHandlers:
+        - event: Bet(indexed address,address,uint256,uint256,bool,uint256)
+          handler: handleBet
+        - event: ClaimPredictionReward(indexed address,address,uint256[],uint256,uint256)
+        handler: handleClaim

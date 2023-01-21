@@ -1,0 +1,26 @@
+{
+  "name": "plena-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ YajashJhamb/plenasubgraph",
+    "create-local": "graph create --node http://localhost:8020/ YajashJhamb/plenasubgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ YajashJhamb/plenasubgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 YajashJhamb/plenasubgraph",
+    "prepare:polygon": "mustache config/polygon.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:avalanche": "mustache config/avalanche.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:bsc": "mustache config/bsc.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:fantom": "mustache config/fantom.json subgraph.template.yaml > subgraph.yaml",
+    "deploy:polygon": "graph deploy --product hosted-service yajashjhamb/plena-predictions",
+    "build-deploy:polygon": "npm run prepare:polygon; npm run codegen; npm run build; npm run deploy:polygon; rm subgraph.yaml",
+    "build-deploy:avalanche": "npm run prepare:avalanche; npm run codegen; npm run build; npm run deploy:avalanche; rm subgraph.yaml",
+    "build-deploy:bsc": "npm run prepare:bsc; npm run codegen; npm run build; npm run deploy:bsc; rm subgraph.yaml",
+    "build-deploy:fantom": "npm run prepare:fantom; npm run codegen; npm run build; npm run deploy:fantom; rm subgraph.yaml"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.21.1",
+    "@graphprotocol/graph-ts": "0.20.0",
+    "mustache": "^3.1.0"
+  }
+}
