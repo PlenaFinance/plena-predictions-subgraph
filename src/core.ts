@@ -56,7 +56,9 @@ export function handleBet(event: Bet): void {
   transaction.save();
 }
 
-export function handleClaim(event: ClaimPredictionReward): void {
+export function handleClaimPredictionReward(
+  event: ClaimPredictionReward
+): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
 

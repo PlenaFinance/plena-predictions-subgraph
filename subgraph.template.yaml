@@ -46,4 +46,4 @@ templates:
         - event: Bet(indexed address,address,uint256,uint256,bool,uint256)
           handler: handleBet
         - event: ClaimPredictionReward(indexed address,address,uint256[],uint256,uint256)
-          handler: handleClaim
+          handler: handleClaimPredictionReward
