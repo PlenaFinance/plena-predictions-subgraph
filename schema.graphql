@@ -19,7 +19,7 @@ type Bet @entity {
 type Claim @entity {
   id: ID!
   user: Bytes!
-  epochs: [BigInt!]! # address
+  epochs: [BigInt!] # uint256
   reward: BigInt! # uint256
   timestamp: BigInt!
   fee: BigInt!
