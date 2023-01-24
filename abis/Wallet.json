@@ -5,6 +5,12 @@
       {
         "indexed": true,
         "internalType": "address",
+        "name": "predictionContract",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "user",
         "type": "address"
       },
@@ -45,6 +51,12 @@
   {
     "anonymous": false,
     "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "predictionContract",
+        "type": "address"
+      },
       {
         "indexed": true,
         "internalType": "address",

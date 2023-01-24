@@ -14,6 +14,7 @@ type Bet @entity {
   direction: Boolean!
   fee: BigInt!
   transactionHash: String!
+  predictionContract: Bytes!
 }
 
 type Claim @entity {
@@ -25,6 +26,7 @@ type Claim @entity {
   fee: BigInt!
   token: Bytes!
   transactionHash: String!
+  predictionContract: Bytes!
 }
 
 type Transaction @entity {

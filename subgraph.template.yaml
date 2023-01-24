@@ -43,7 +43,7 @@ templates:
         - name: Wallet
           file: ./abis/Wallet.json
       eventHandlers:
-        - event: Bet(indexed address,address,uint256,uint256,bool,uint256)
+        - event: Bet(indexed address,indexed address,address,uint256,uint256,bool,uint256)
           handler: handleBet
-        - event: ClaimPredictionReward(indexed address,address,uint256[],uint256,uint256)
+        - event: ClaimPredictionReward(indexed address,indexed address,address,uint256[],uint256,uint256)
           handler: handleClaimPredictionReward

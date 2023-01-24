@@ -50,6 +50,7 @@ export function handleBet(event: Bet): void {
   entity.direction = event.params.direction;
   entity.fee = event.params.fee;
   entity.transactionHash = event.transaction.hash.toHexString();
+  entity.predictionContract = event.params.predictionContract;
   // Entities can be written to the store with `.save()`
   entity.save();
   transaction.bet = entity.id;
@@ -98,6 +99,8 @@ export function handleClaimPredictionReward(
   entity.fee = event.params.fee;
   entity.token = event.params.token;
   entity.transactionHash = event.transaction.hash.toHexString();
+  entity.predictionContract = event.params.predictionContract;
+
   // Entities can be written to the store with `.save()`
   entity.save();
   transaction.claim = entity.id;
