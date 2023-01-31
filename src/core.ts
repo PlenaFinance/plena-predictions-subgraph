@@ -37,9 +37,9 @@ export function handleBet(event: Bet): void {
     transaction.wallet = event.address.toHexString();
     transaction.timestamp = event.block.timestamp;
     transaction.transactionHash = event.transaction.hash.toHexString();
-    transaction.transferEvent = "bet";
+    transaction.transactionEvent = "bet";
   } else {
-    transaction.transferEvent = "bet";
+    transaction.transactionEvent = "bet";
   }
 
   entity.user = event.params.user;
@@ -87,9 +87,9 @@ export function handleClaimPredictionReward(
     transaction.wallet = event.address.toHexString();
     transaction.timestamp = event.block.timestamp;
     transaction.transactionHash = event.transaction.hash.toHexString();
-    transaction.transferEvent = "claim";
+    transaction.transactionEvent = "claim";
   } else {
-    transaction.transferEvent = "claim";
+    transaction.transactionEvent = "claim";
   }
 
   entity.user = event.params.user;
