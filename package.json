@@ -13,6 +13,7 @@
     "prepare:bsc": "mustache config/bsc.json subgraph.template.yaml > subgraph.yaml",
     "prepare:fantom": "mustache config/fantom.json subgraph.template.yaml > subgraph.yaml",
     "deploy:polygon": "graph deploy --product hosted-service yajashjhamb/plena-predictions",
+    "deploy:fantom": "graph deploy --product hosted-service yajashjhamb/plena-predictions-ftm",
     "build-deploy:polygon": "npm run prepare:polygon; npm run codegen; npm run build; npm run deploy:polygon; rm subgraph.yaml",
     "build-deploy:avalanche": "npm run prepare:avalanche; npm run codegen; npm run build; npm run deploy:avalanche; rm subgraph.yaml",
     "build-deploy:bsc": "npm run prepare:bsc; npm run codegen; npm run build; npm run deploy:bsc; rm subgraph.yaml",
